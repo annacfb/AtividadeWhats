@@ -38,7 +38,25 @@ public class MainActivity extends AppCompatActivity {
         Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openWebPage ("https://wa.me/5541998541436?text=I'm%20interested%20in%20your%20car%20for%20sale");
+                String telefone = Number_Input_Edit_Text.getText().toString();
+                String texto = MessageInputEditText.getText().toString();
+
+                String url = formatoUrl(telefone, texto);
+
+                enviar(url);
+            }
+
+            public String formatoUrl(String telefone, String texto) {
+                texto = texto.replace(" ", " %20");
+
+                String link = "https://wa.me/+55" + telefone + "?text=" + texto;
+                return link;
+            }
+
+            public void enviar(String url) {
+                Uri webpage = Uri.parse(url);
+                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                startActivity(intent);
             }
         });
     }

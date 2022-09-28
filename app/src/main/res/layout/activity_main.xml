@@ -21,7 +21,7 @@
             android:id="@+id/Number_Input_Edit_Text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Numero" />
+            android:hint="Numero Ex: 41999999999" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
